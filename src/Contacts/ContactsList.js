@@ -1,25 +1,19 @@
 import PropTypes from "prop-types";
+import {ContactListItem} from "./ContactListItem"
 
 const ContactList = ({contacts, handleDeleteContact}) => {
     return (
         <ul className="contact_list">
-            {contacts.map(({key, name, number}) => {
-                return (
-                    <li key={key} className="contact_item">
-                        <span>{name}</span>: <span>{number}</span>
-                        <button className="contact_btn" onClick={()=>handleDeleteContact(key)}>Delete</button>
-                    </li>
-                )
-            })}
+                    <ContactListItem
+                        contacts={contacts}
+                        handleDeleteContact={handleDeleteContact}
+                    />
           </ul>
     )
 }
 
 ContactList.propTypes = {
-    contacts: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.node.isRequired,
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired
-    }))
+    contacts: PropTypes.arrayOf(PropTypes.object.isRequired),
+    handleDeleteContact: PropTypes.func.isRequired
 }
 export default ContactList
