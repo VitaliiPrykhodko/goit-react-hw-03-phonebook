@@ -3,6 +3,7 @@ import shortid from "shortid";
 import Form from "./Form/Form.js";
 import ContactList from "./Contacts/ContactsList";
 import Filter from "./Filter/Filter";
+import styles from "./App.module.css"
 
 class App extends Component {
   state = {
@@ -75,7 +76,7 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
+      <div className={styles.App}>
         <h1>Phonebook</h1>
         <Form onClick={this.handleAddContact} />
         <h2 className="contact_title">Contacts</h2>

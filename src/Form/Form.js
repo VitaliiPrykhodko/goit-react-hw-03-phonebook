@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import styles from "./Form.module.css"
 
 class Form extends Component {
   state = {
@@ -31,13 +32,13 @@ class Form extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form className="form_contact">
-        <label className="form_label">
+      <form className={styles.form_contact}>
+        <label className={styles.form_label}>
           Name
           <input
             onChange={this.handleChange}
             value={name}
-            className="input_contact"
+            className={styles.input_contact}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -45,12 +46,12 @@ class Form extends Component {
             required
           />
         </label>
-        <label className="form_label">
+        <label className={styles.form_label}>
           Number
           <input
             onChange={this.handleChange}
             value={number}
-            className="input_contact"
+            className={styles.input_contact}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -60,7 +61,7 @@ class Form extends Component {
         </label>
         <button
           type="button"
-          className="btn_contact"
+          className={styles.btn_contact}
           onClick={this.handleClick}
         >
           Add contact
